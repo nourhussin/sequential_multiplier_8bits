@@ -4,8 +4,8 @@ module encoder_7seg(
 );
     always @(*)begin
         case(in_to_display)
-        3'b000: segments = 7'b1111110; // display 0
-        3'b001: segments = 7'b0110000; // display 1
+        3'b000: segments = 7'b1111110; // display 0 
+        3'b001: segments = 7'b0110000; // display 1 
         3'b010: segments = 7'b1101101; // display 2
         3'b011: segments = 7'b1111001; // display 3
         default:segments = 7'b1001111; // display E

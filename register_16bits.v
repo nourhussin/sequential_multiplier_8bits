@@ -1,4 +1,4 @@
-module regsiter_16bits(
+module register_16bits(
     input[15:0] data_in,
     input clk, async_clear_n, clk_enable,
     output reg[15:0] reg_out
