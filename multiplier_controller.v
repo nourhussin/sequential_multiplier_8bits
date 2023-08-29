@@ -1,7 +1,7 @@
 module multiplier_controller(
     input clk, start, reset_a,
     input [1:0] count,
-    output reg done, clk_ena, sclr_n,
+    output reg done, clk_enable, clear_n,
     output reg [1:0] input_sel, shift_sel,
     output [2:0] state_out
 );
@@ -32,8 +32,8 @@ module multiplier_controller(
             begin
                 next_state <= LSB;
                 done <=    1'b0;
-                clk_ena <= 1'b0;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b0;
+                clear_n <=  1'b1;
                 //default
                 input_sel <= 2'b00;
                 shift_sel <= 2'b00;
@@ -42,8 +42,8 @@ module multiplier_controller(
             begin
                 next_state <= IDLE;
                 done <=    1'b0;
-                clk_ena <= 1'b1;
-                sclr_n <=  1'b0;
+                clk_enable <= 1'b1;
+                clear_n <=  1'b0;
                 //default
                 input_sel <= 2'b00;
                 shift_sel <= 2'b00;
@@ -54,8 +54,8 @@ module multiplier_controller(
             begin
                 next_state <= MID;
                 done <=    1'b0;
-                clk_ena <= 1'b1;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b1;
+                clear_n <=  1'b1;
                 input_sel <= 2'b00;
                 shift_sel <= 2'b00;
             end
@@ -63,8 +63,8 @@ module multiplier_controller(
             begin
                 next_state <= ERR;
                 done <=    1'b0;
-                clk_ena <= 1'b0;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b0;
+                clear_n <=  1'b1;
                 //default
                 input_sel <= 2'b00;
                 shift_sel <= 2'b00;
@@ -75,8 +75,8 @@ module multiplier_controller(
             begin
                 next_state <= MID;
                 done <=    1'b0;
-                clk_ena <= 1'b1;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b1;
+                clear_n <=  1'b1;
                 input_sel <= 2'b01;
                 shift_sel <= 2'b01;
             end
@@ -84,8 +84,8 @@ module multiplier_controller(
             begin
                 next_state <= MSB;
                 done <=    1'b0;
-                clk_ena <= 1'b1;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b1;
+                clear_n <=  1'b1;
                 input_sel <= 2'b10;
                 shift_sel <= 2'b01;
             end
@@ -93,8 +93,8 @@ module multiplier_controller(
             begin
                 next_state <= ERR;
                 done <=    1'b0;
-                clk_ena <= 1'b0;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b0;
+                clear_n <=  1'b1;
                 //default
                 input_sel <= 2'b00;
                 shift_sel <= 2'b00;
@@ -105,8 +105,8 @@ module multiplier_controller(
             begin
                 next_state <= CALC_DONE;
                 done <=    1'b0;
-                clk_ena <= 1'b1;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b1;
+                clear_n <=  1'b1;
                 input_sel <= 2'b11;
                 shift_sel <= 2'b10;
             end
@@ -114,8 +114,8 @@ module multiplier_controller(
             begin
                 next_state <= ERR;
                 done <=    1'b0;
-                clk_ena <= 1'b0;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b0;
+                clear_n <=  1'b1;
                 //default
                 input_sel <= 2'b00;
                 shift_sel <= 2'b00;
@@ -126,8 +126,8 @@ module multiplier_controller(
             begin
                 next_state <= IDLE;
                 done <=    1'b1;
-                clk_ena <= 1'b0;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b0;
+                clear_n <=  1'b1;
                 //default
                 input_sel <= 2'b00;
                 shift_sel <= 2'b00;
@@ -136,8 +136,8 @@ module multiplier_controller(
             begin
                 next_state <= ERR;
                 done <=    1'b0;
-                clk_ena <= 1'b0;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b0;
+                clear_n <=  1'b1;
                 //default
                 input_sel <= 2'b00;
                 shift_sel <= 2'b00;
@@ -148,8 +148,8 @@ module multiplier_controller(
             begin
                 next_state <= LSB;
                 done <=    1'b0;
-                clk_ena <= 1'b1;
-                sclr_n <=  1'b0;
+                clk_enable <= 1'b1;
+                clear_n <=  1'b0;
                 //default
                 input_sel <= 2'b00;
                 shift_sel <= 2'b00;
@@ -158,8 +158,8 @@ module multiplier_controller(
             begin
                 next_state <= ERR;
                 done <=    1'b0;
-                clk_ena <= 1'b0;
-                sclr_n <=  1'b1;
+                clk_enable <= 1'b0;
+                clear_n <=  1'b1;
                 //default
                 input_sel <= 2'b00;
                 shift_sel <= 2'b00;
